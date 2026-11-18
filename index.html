@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le présent de l'indicatif – 10 verbes essentiels</title>
+<style>
+:root{
+  --bg:#f4f8fb; --card:#fff; --ink:#17324d; --muted:#60758a;
+  --blue:#2369a8; --blue2:#e8f3fc; --green:#25835b; --green2:#eaf8f1;
+  --orange:#d67b22; --orange2:#fff3e5; --red:#c94c4c; --line:#dce8f2;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45}
+header{background:linear-gradient(135deg,#1f659f,#3385c2);color:#fff;padding:34px 18px}
+.wrap{max-width:1180px;margin:auto}
+h1{margin:0 0 8px;font-size:clamp(1.8rem,4vw,3rem)}
+header p{margin:0;opacity:.95;font-size:1.05rem}
+nav{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line);padding:10px 12px;display:flex;gap:8px;overflow:auto}
+nav button,.btn{border:0;border-radius:999px;padding:10px 14px;font-weight:700;cursor:pointer;background:var(--blue2);color:var(--blue);white-space:nowrap}
+nav button:hover,.btn:hover{filter:brightness(.97)}
+main{padding:22px 14px 48px}
+section{scroll-margin-top:75px;margin:0 auto 28px;max-width:1180px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 8px 24px rgba(30,73,110,.06)}
+h2{margin-top:0;color:#174d79}
+.langs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.lang{border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 12px;cursor:pointer;font-weight:700}
+.lang.active{background:var(--ink);color:#fff}
+.help{background:#f8fbfe;border-left:5px solid var(--blue);padding:14px 16px;border-radius:10px;margin-top:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:15px}
+.verb{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.verbHead{padding:15px 16px;background:var(--blue2);display:flex;align-items:center;justify-content:space-between;gap:8px}
+.verbHead h3{margin:0;font-size:1.2rem}
+.trans{font-size:.88rem;color:var(--muted);font-weight:600}
+.sound{border:0;background:#fff;border-radius:50%;width:38px;height:38px;cursor:pointer;font-size:18px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+table{width:100%;border-collapse:collapse}
+td{padding:8px 13px;border-top:1px solid #edf2f6}
+td:first-child{width:42%;font-weight:700;color:#516a80}
+mark{background:#fff0a9;padding:0 3px;border-radius:4px}
+.note{font-size:.94rem;color:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.tag{border-radius:999px;padding:6px 10px;font-size:.82rem;font-weight:800}
+.reg{background:var(--green2);color:var(--green)}
+.irr{background:#fdeaea;color:#a93a3a}
+.change{background:var(--orange2);color:#a45d14}
+.quizBox{display:grid;gap:14px}
+.q{border:1px solid var(--line);border-radius:14px;padding:15px;background:#fff}
+.q p{font-weight:750;margin:0 0 10px}
+.answers{display:flex;gap:8px;flex-wrap:wrap}
+.answer{border:1px solid #bfd2e3;background:#fff;border-radius:10px;padding:8px 11px;cursor:pointer}
+.answer.correct{background:#dcf5e7;border-color:#58aa7e}
+.answer.wrong{background:#fde3e3;border-color:#d87878}
+.feedback{margin-top:8px;font-weight:700;min-height:1.3em}
+.exercise{display:grid;grid-template-columns:1fr auto;gap:8px;margin:8px 0}
+.exercise input{border:1px solid #bfd2e3;border-radius:9px;padding:9px 10px;font-size:1rem}
+.check{border:0;border-radius:9px;background:var(--blue);color:#fff;padding:8px 12px;font-weight:700;cursor:pointer}
+.score{font-size:1.2rem;font-weight:850;padding:12px 14px;background:var(--green2);color:var(--green);border-radius:12px;display:inline-block}
+footer{text-align:center;color:var(--muted);padding:20px}
+.small{font-size:.88rem}
+[dir="rtl"]{text-align:right;font-family:Tahoma,"Noto Sans Arabic",Arial,sans-serif;line-height:1.8}
+@media(max-width:600px){.card{padding:15px}.verbHead{align-items:flex-start}.exercise{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap">
+  <h1>Le présent de l’indicatif</h1>
+  <p>10 verbes essentiels • écouter • observer • mémoriser • s’entraîner</p>
+ </div>
+</header>
+<nav>
+ <button onclick="go('theorie')">📘 Comprendre</button>
+ <button onclick="go('verbes')">🔤 Les 10 verbes</button>
+ <button onclick="go('entrainement')">✍️ S’entraîner</button>
+ <button onclick="go('quiz')">🎯 Quiz</button>
+</nav>
+
+<main>
+<section id="theorie">
+ <div class="card">
+  <h2>1. Comprendre le présent</h2>
+  <div class="langs">
+    <button class="lang active" data-l="fr" onclick="setLang('fr')">🇫🇷 Français</button>
+    <button class="lang" data-l="ku" onclick="setLang('ku')">☀️ کوردی سۆرانی</button>
+    <button class="lang" data-l="en" onclick="setLang('en')">🇬🇧 English</button>
+    <button class="lang" data-l="tr" onclick="setLang('tr')">🇹🇷 Türkçe</button>
+    <button class="lang" data-l="ti" onclick="setLang('ti')">🇪🇷 ትግርኛ</button>
+  </div>
+  <div class="help" id="helpText"></div>
+  <p class="note">👉 En français, le verbe change avec le sujet : <b>je, tu, il/elle/on, nous, vous, ils/elles</b>.</p>
+  <div class="legend">
+    <span class="tag reg">Verbes réguliers</span>
+    <span class="tag change">Changement particulier</span>
+    <span class="tag irr">Verbes irréguliers</span>
+  </div>
+ </div>
+</section>
+
+<section id="verbes">
+ <h2>2. Les 10 verbes</h2>
+ <div class="grid" id="verbGrid"></div>
+</section>
+
+<section id="entrainement">
+ <div class="card">
+  <h2>3. Complète les phrases</h2>
+  <p>Écris seulement la forme correcte du verbe.</p>
+  <div id="fillList"></div>
+  <button class="btn" onclick="checkAll()">✅ Tout corriger</button>
+  <span id="fillScore" style="margin-left:10px"></span>
+ </div>
+</section>
+
+<section id="quiz">
+ <div class="card">
+  <h2>4. Petit quiz</h2>
+  <p>Choisis la bonne forme. Ton score apparaît à la fin.</p>
+  <div class="quizBox" id="quizBox"></div>
+  <button class="btn" onclick="resetQuiz()">🔄 Recommencer</button>
+  <div id="score" style="margin-top:14px"></div>
+ </div>
+</section>
+</main>
+
+<footer>FLE • Présent de l’indicatif • Support de révision multilingue</footer>
+
+<script>
+const subjects=["je","tu","il / elle / on","nous","vous","ils / elles"];
+
+const verbs=[
+ {inf:"aimer",en:"to like / to love",tr:"sevmek",ti:"ምፍታው / ምፍቃር",ku:"حەزکردن / خۆشویستن",type:"reg",forms:["j’aime","tu aimes","il / elle / on aime","nous aimons","vous aimez","ils / elles aiment"]},
+ {inf:"manger",en:"to eat",tr:"yemek",ti:"ምብላዕ",ku:"خواردن",type:"change",forms:["je mange","tu manges","il / elle / on mange","nous mangeons","vous mangez","ils / elles mangent"]},
+ {inf:"acheter",en:"to buy",tr:"satın almak",ti:"ምግዛእ",ku:"کڕین",type:"change",forms:["j’achète","tu achètes","il / elle / on achète","nous achetons","vous achetez","ils / elles achètent"]},
+ {inf:"vouloir",en:"to want",tr:"istemek",ti:"ምድላይ",ku:"ویستن",type:"irr",forms:["je veux","tu veux","il / elle / on veut","nous voulons","vous voulez","ils / elles veulent"]},
+ {inf:"boire",en:"to drink",tr:"içmek",ti:"ምስታይ",ku:"خواردنەوە",type:"irr",forms:["je bois","tu bois","il / elle / on boit","nous buvons","vous buvez","ils / elles boivent"]},
+ {inf:"prendre",en:"to take",tr:"almak",ti:"ምውሳድ",ku:"وەرگرتن",type:"irr",forms:["je prends","tu prends","il / elle / on prend","nous prenons","vous prenez","ils / elles prennent"]},
+ {inf:"avoir",en:"to have",tr:"sahip olmak / var",ti:"ምህላው",ku:"هەبوون",type:"irr",forms:["j’ai","tu as","il / elle / on a","nous avons","vous avez","ils / elles ont"]},
+ {inf:"être",en:"to be",tr:"olmak",ti:"ምዃን",ku:"بوون",type:"irr",forms:["je suis","tu es","il / elle / on est","nous sommes","vous êtes","ils / elles sont"]},
+ {inf:"aller",en:"to go",tr:"gitmek",ti:"ምኻድ",ku:"چوون",type:"irr",forms:["je vais","tu vas","il / elle / on va","nous allons","vous allez","ils / elles vont"]},
+ {inf:"faire",en:"to do / to make",tr:"yapmak",ti:"ምግባር",ku:"کردن",type:"irr",forms:["je fais","tu fais","il / elle / on fait","nous faisons","vous faites","ils / elles font"]}
+];
+
+const help={
+ fr:`<b>Le présent de l’indicatif</b> sert à parler de ce qui se passe maintenant, des habitudes et des vérités générales.<br>
+ Exemple : <b>Je mange.</b> = l’action se passe maintenant ou habituellement. <b>Nous allons à l’école.</b> = nous nous y rendons maintenant ou régulièrement.<br>
+ En français, le verbe change selon le sujet : <b>je, tu, il/elle/on, nous, vous, ils/elles</b>. Certains verbes sont réguliers, mais beaucoup de verbes très fréquents sont irréguliers.`,
+ ku:`<div dir="rtl" lang="ckb"><b>کاتی ئێستا (Le présent de l’indicatif)</b> لە زمانی فەرەنسی بۆ باسکردنی شتێک بەکاردێت کە ئێستا ڕوودەدات، یان بۆ عادەت و ڕاستییە گشتییەکان.<br>
+ نموونە: <b>Je mange.</b> = من دەخۆم / ئێستا خەریکی خواردنم. <b>Nous allons à l’école.</b> = ئێمە دەچین بۆ قوتابخانە.<br>
+ لە زمانی فەرەنسی، شێوەی کردار بە پێی بکەر دەگۆڕێت: <b>je, tu, il/elle/on, nous, vous, ils/elles</b>.<br>
+ هەندێک کردار ڕێکخراون (réguliers)، بەڵام زۆرێک لە کردارە زۆر بەکارهاتووەکان نائاسایی یان نەرێکخراون (irréguliers). باشترین ڕێگا ئەوەیە بکەر و کردار پێکەوە فێرببن.</div>`,
+ en:`<b>Present tense</b> is used to talk about what happens now, habits and general facts.<br>
+ Example: <b>Je mange.</b> = I eat / I am eating. <b>Nous allons à l’école.</b> = We go / are going to school.<br>
+ Learn the subject + verb together. Some verbs are regular, but many common verbs are irregular.`,
+ tr:`<b>Şimdiki / geniş zaman anlamı</b> Fransızcada présent ile ifade edilir. Şu anda yapılan işleri, alışkanlıkları ve genel durumları anlatır.<br>
+ Örnek: <b>Je mange.</b> = Yiyorum / yerim. <b>Nous allons à l’école.</b> = Okula gidiyoruz / gideriz.<br>
+ Özne ile fiili birlikte öğrenin. Bazı fiiller düzenlidir, fakat sık kullanılan birçok fiil düzensizdir.`,
+ ti:`<b>Présent (ናይ ሕጂ ግዜ)</b> ኣብዚ ሕጂ ዝፍጸም ነገር፣ ልምዲ ወይ ሓፈሻዊ ሓቂ ንምግላጽ ይጥቀም።<br>
+ ኣብነት፦ <b>Je mange.</b> = እበልዕ ኣለኹ / እበልዕ። <b>Nous allons à l’école.</b> = ናብ ቤት ትምህርቲ ንኸይድ።<br>
+ ተዋሳኢን ግሲን ብሓንሳብ ምሃር። ገለ ግስታት ስሩዓት እዮም፣ ብዙሓት ዝውቱራት ግስታት ግን ዘይስሩዓት እዮም።`
+};
+function setLang(l){
+ document.getElementById('helpText').innerHTML=help[l];
+ document.querySelectorAll('.lang').forEach(b=>b.classList.toggle('active',b.dataset.l===l));
+}
+setLang('fr');
+
+function typeLabel(t){
+ return t==="reg" ? "régulier" : t==="change" ? "attention" : "irrégulier";
+}
+function renderVerbs(){
+ const grid=document.getElementById('verbGrid');
+ grid.innerHTML=verbs.map(v=>`
+  <article class="verb">
+   <div class="verbHead">
+    <div>
+     <h3>${v.inf.toUpperCase()} <span class="tag ${v.type}">${typeLabel(v.type)}</span></h3>
+     <div class="trans">☀️ <span dir="rtl" lang="ckb">${v.ku}</span> &nbsp; • &nbsp; 🇬🇧 ${v.en} &nbsp; • &nbsp; 🇹🇷 ${v.tr} &nbsp; • &nbsp; 🇪🇷 ${v.ti}</div>
+    </div>
+    <button class="sound" title="Écouter" onclick="speak('${v.inf}')">🔊</button>
+   </div>
+   <table>${v.forms.map(f=>`<tr><td>${f.split(" ").slice(0,-1).join(" ")}</td><td><b>${f.split(" ").slice(-1)}</b> <button class="sound" style="width:30px;height:30px;font-size:14px" onclick="speak('${f.replaceAll("'","\\'")}')">🔊</button></td></tr>`).join("")}</table>
+  </article>`).join("");
+}
+renderVerbs();
+
+function speak(txt){
+ if(!('speechSynthesis' in window)) return alert("La synthèse vocale n'est pas disponible dans ce navigateur.");
+ speechSynthesis.cancel();
+ const u=new SpeechSynthesisUtterance(txt.replaceAll(" / "," "));
+ u.lang="fr-FR"; u.rate=.82;
+ const voices=speechSynthesis.getVoices();
+ const fr=voices.find(v=>v.lang && v.lang.toLowerCase().startsWith("fr"));
+ if(fr) u.voice=fr;
+ speechSynthesis.speak(u);
+}
+
+const fills=[
+ ["Je ___ le chocolat. (aimer)","aime"],
+ ["Nous ___ au restaurant. (manger)","mangeons"],
+ ["Tu ___ du pain. (acheter)","achètes"],
+ ["Vous ___ un café. (vouloir)","voulez"],
+ ["Ils ___ de l’eau. (boire)","boivent"],
+ ["Elle ___ le bus. (prendre)","prend"],
+ ["J’___ deux enfants. (avoir)","ai"],
+ ["Nous ___ en classe. (être)","sommes"],
+ ["Tu ___ à Bruxelles. (aller)","vas"],
+ ["Vous ___ du sport. (faire)","faites"]
+];
+document.getElementById('fillList').innerHTML=fills.map((x,i)=>`
+ <div class="exercise">
+  <label>${i+1}. ${x[0]}<br><input id="f${i}" autocomplete="off"></label>
+  <button class="check" onclick="checkOne(${i})">Corriger</button>
+ </div>`).join("");
+
+function norm(s){return s.trim().toLowerCase().normalize("NFC").replace(/[’']/g,"'")}
+function checkOne(i){
+ const el=document.getElementById("f"+i), ok=norm(el.value)===norm(fills[i][1]);
+ el.style.borderColor=ok?"#3c9b69":"#cf5d5d"; el.style.background=ok?"#eefbf4":"#fff0f0";
+ return ok;
+}
+function checkAll(){
+ let n=0; fills.forEach((_,i)=>{if(checkOne(i))n++});
+ document.getElementById('fillScore').innerHTML=`<span class="score">${n} / ${fills.length}</span>`;
+}
+
+const quiz=[
+ {q:"Nous ___ du café.",a:["bois","buvons","boivent"],c:1},
+ {q:"Tu ___ une pomme.",a:["manges","mangeons","mange"],c:0},
+ {q:"Ils ___ en Belgique.",a:["sont","êtes","sommes"],c:0},
+ {q:"Je ___ aller au magasin.",a:["veux","veut","voulez"],c:0},
+ {q:"Vous ___ vos devoirs.",a:["fait","faites","font"],c:1},
+ {q:"Elle ___ le train.",a:["prend","prends","prenez"],c:0},
+ {q:"Nous ___ à l'école.",a:["allez","allons","vont"],c:1},
+ {q:"J’___ une voiture.",a:["as","ai","a"],c:1},
+ {q:"Vous ___ des légumes.",a:["achetez","achète","achètent"],c:0},
+ {q:"Elles ___ la musique.",a:["aiment","aimez","aimons"],c:0}
+];
+let done=new Set(), points=0;
+function renderQuiz(){
+ done=new Set(); points=0;
+ document.getElementById('score').innerHTML="";
+ document.getElementById('quizBox').innerHTML=quiz.map((x,i)=>`
+  <div class="q" id="q${i}">
+   <p>${i+1}. ${x.q}</p>
+   <div class="answers">${x.a.map((a,j)=>`<button class="answer" onclick="answer(${i},${j},this)">${a}</button>`).join("")}</div>
+   <div class="feedback"></div>
+  </div>`).join("");
+}
+function answer(i,j,btn){
+ if(done.has(i)) return;
+ done.add(i);
+ const box=document.getElementById("q"+i), buttons=[...box.querySelectorAll(".answer")];
+ if(j===quiz[i].c){btn.classList.add("correct");box.querySelector(".feedback").textContent="✅ Bravo !";points++}
+ else{btn.classList.add("wrong");buttons[quiz[i].c].classList.add("correct");box.querySelector(".feedback").textContent="❌ Regarde la bonne réponse."}
+ if(done.size===quiz.length) document.getElementById('score').innerHTML=`<span class="score">Score : ${points} / ${quiz.length}</span>`;
+}
+function resetQuiz(){renderQuiz()}
+renderQuiz();
+function go(id){document.getElementById(id).scrollIntoView({behavior:"smooth"})}
+</script>
+</body>
+</html>
